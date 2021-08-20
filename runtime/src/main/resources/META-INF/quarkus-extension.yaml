@@ -1,0 +1,6 @@
+---
+name: "Quarkus Elasticsearch Logging"
+metadata:
+  categories:
+  - "core"
+  status: "preview"
