@@ -16,7 +16,7 @@ public class ElasticsearchLoggingRecorder {
             return new RuntimeValue<>(Optional.empty());
         }
 
-        return new RuntimeValue<>(Optional.of(new QuarkusLogHandler(config)));
+        return new RuntimeValue<>(Optional.of(new QuarkusElasticsearchLogHandler(config)));
     }
 
 }

@@ -4,9 +4,9 @@ import net.codinux.log.elasticsearch.JBossLoggingElasticsearchLogHandler;
 import net.codinux.log.elasticsearch.LoggerSettings;
 import net.codinux.log.elasticsearch.quarkus.runtime.config.ElasticsearchLoggingConfig;
 
-public class QuarkusLogHandler extends JBossLoggingElasticsearchLogHandler {
+public class QuarkusElasticsearchLogHandler extends JBossLoggingElasticsearchLogHandler {
 
-    public QuarkusLogHandler(ElasticsearchLoggingConfig config) {
+    public QuarkusElasticsearchLogHandler(ElasticsearchLoggingConfig config) {
         super(mapSettings(config));
     }
 
