@@ -3,6 +3,8 @@ package net.codinux.quarkus.logging.elasticsearch.runtime.config;
 import io.quarkus.runtime.annotations.ConfigItem;
 import io.quarkus.runtime.annotations.ConfigPhase;
 import io.quarkus.runtime.annotations.ConfigRoot;
+import io.quarkus.runtime.annotations.ConvertWith;
+import net.codinux.log.elasticsearch.TimestampFormat;
 
 @ConfigRoot(phase = ConfigPhase.RUN_TIME, name = "log.elasticsearch")
 public class ElasticsearchLoggingConfig {
@@ -25,20 +27,15 @@ public class ElasticsearchLoggingConfig {
     @ConfigItem(name = "index", defaultValue = "logs")
     public String indexName;
 
-    public MessageConfig message;
+    /**
+     * The format in which timestamp gets logged, either "millis" (= millis since epoch) or "formatted" (formats the timestamp as 'yyyy-MM-dd'T'HH:mm:ss.SSSZ').
+     */
+    @ConfigItem(name = "timestampformat", defaultValue = TimestampFormatConverter.FORMATTED_FIELD_VALUE)
+    @ConvertWith(TimestampFormatConverter.class)
+    public TimestampFormat timestampFormat;
 
-    public TimestampConfig timestamp;
+    public IncludeConfig include;
 
-    public LogLevelConfig level;
-
-    public LoggerNameConfig logger;
-
-    public HostNameConfig hostname;
-
-    public ThreadNameConfig thread;
-
-    public StacktraceConfig stacktrace;
-
-    public MdcConfig mdc;
+    public FieldNameConfig fieldname;
 
 }

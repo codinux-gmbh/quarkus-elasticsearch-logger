@@ -18,27 +18,27 @@ public class QuarkusLogHandler extends JBossLoggingElasticsearchLogHandler {
 
                 config.indexName,
 
-                config.message.name,
+                config.fieldname.message,
 
-                config.timestamp.name,
-                config.timestamp.format,
+                config.fieldname.timestamp,
+                config.timestampFormat,
 
-                config.level.include,
-                config.level.name,
+                config.include.logLevel,
+                config.fieldname.logLevel,
 
-                config.logger.include,
-                config.logger.name,
+                config.include.loggerName,
+                config.fieldname.loggerName,
 
-                config.thread.include,
-                config.thread.name,
+                config.include.threadName,
+                config.fieldname.threadName,
 
-                config.hostname.include,
-                config.hostname.name,
+                config.include.hostname,
+                config.fieldname.hostname,
 
-                config.stacktrace.include,
-                config.stacktrace.name,
+                config.include.stacktrace,
+                config.fieldname.stacktrace,
 
-                config.mdc.include
+                config.include.mdc
         );
     }
 
