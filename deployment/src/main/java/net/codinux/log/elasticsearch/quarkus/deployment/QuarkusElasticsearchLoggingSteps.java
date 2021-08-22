@@ -1,11 +1,11 @@
-package net.codinux.quarkus.logging.elasticsearch.deployment;
+package net.codinux.log.elasticsearch.quarkus.deployment;
 
 import io.quarkus.deployment.annotations.BuildStep;
 import io.quarkus.deployment.annotations.ExecutionTime;
 import io.quarkus.deployment.annotations.Record;
 import io.quarkus.deployment.builditem.LogHandlerBuildItem;
-import net.codinux.quarkus.logging.elasticsearch.runtime.config.ElasticsearchLoggingConfig;
-import net.codinux.quarkus.logging.elasticsearch.runtime.ElasticsearchLoggingRecorder;
+import net.codinux.log.elasticsearch.quarkus.runtime.config.ElasticsearchLoggingConfig;
+import net.codinux.log.elasticsearch.quarkus.runtime.ElasticsearchLoggingRecorder;
 
 public class QuarkusElasticsearchLoggingSteps {
 

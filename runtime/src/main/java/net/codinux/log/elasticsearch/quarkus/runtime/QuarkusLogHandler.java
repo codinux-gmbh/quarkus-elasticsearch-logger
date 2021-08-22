@@ -1,8 +1,8 @@
-package net.codinux.quarkus.logging.elasticsearch.runtime;
+package net.codinux.log.elasticsearch.quarkus.runtime;
 
 import net.codinux.log.elasticsearch.JBossLoggingElasticsearchLogHandler;
 import net.codinux.log.elasticsearch.LoggerSettings;
-import net.codinux.quarkus.logging.elasticsearch.runtime.config.ElasticsearchLoggingConfig;
+import net.codinux.log.elasticsearch.quarkus.runtime.config.ElasticsearchLoggingConfig;
 
 public class QuarkusLogHandler extends JBossLoggingElasticsearchLogHandler {
 

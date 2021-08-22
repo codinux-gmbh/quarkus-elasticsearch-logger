@@ -1,4 +1,4 @@
-package net.codinux.quarkus.logging.elasticsearch.runtime.config;
+package net.codinux.log.elasticsearch.quarkus.runtime.config;
 
 import io.quarkus.runtime.annotations.ConfigGroup;
 import io.quarkus.runtime.annotations.ConfigItem;

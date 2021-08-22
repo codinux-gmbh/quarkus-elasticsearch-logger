@@ -1,4 +1,4 @@
-package net.codinux.quarkus.logging.elasticsearch.runtime.config;
+package net.codinux.log.elasticsearch.quarkus.runtime.config;
 
 import net.codinux.log.elasticsearch.TimestampFormat;
 import org.eclipse.microprofile.config.spi.Converter;

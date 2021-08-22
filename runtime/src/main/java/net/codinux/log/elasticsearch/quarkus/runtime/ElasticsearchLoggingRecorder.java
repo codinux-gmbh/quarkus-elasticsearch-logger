@@ -1,8 +1,8 @@
-package net.codinux.quarkus.logging.elasticsearch.runtime;
+package net.codinux.log.elasticsearch.quarkus.runtime;
 
 import io.quarkus.runtime.RuntimeValue;
 import io.quarkus.runtime.annotations.Recorder;
-import net.codinux.quarkus.logging.elasticsearch.runtime.config.ElasticsearchLoggingConfig;
+import net.codinux.log.elasticsearch.quarkus.runtime.config.ElasticsearchLoggingConfig;
 
 import java.util.Optional;
 import java.util.logging.Handler;

@@ -1,4 +1,4 @@
-package net.codinux.quarkus.logging.elasticsearch.deployment;
+package net.codinux.log.elasticsearch.quarkus.deployment;
 
 import io.quarkus.deployment.annotations.BuildStep;
 import io.quarkus.deployment.builditem.FeatureBuildItem;
