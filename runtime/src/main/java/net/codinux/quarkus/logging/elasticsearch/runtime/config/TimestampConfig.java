@@ -3,6 +3,7 @@ package net.codinux.quarkus.logging.elasticsearch.runtime.config;
 import io.quarkus.runtime.annotations.ConfigGroup;
 import io.quarkus.runtime.annotations.ConfigItem;
 import io.quarkus.runtime.annotations.ConvertWith;
+import net.codinux.log.elasticsearch.TimestampFormat;
 import org.eclipse.microprofile.config.spi.Converter;
 
 @ConfigGroup
