@@ -4,3 +4,4 @@ metadata:
   categories:
   - "core"
   status: "preview"
+  guide: "https://github.com/codinux-gmbh/quarkus-elasticsearch-logger"

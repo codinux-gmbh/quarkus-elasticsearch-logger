@@ -16,6 +16,7 @@
         <compiler-plugin.version>3.8.1</compiler-plugin.version>
     </properties>
 
+
     <groupId>${groupId}</groupId>
     <artifactId>${artifactIdBase}-parent</artifactId>
     <version>${version}</version>
@@ -24,12 +25,11 @@
     <url>https://github.com/codinux-gmbh/quarkus-elasticsearch-logger/</url>
     <description>Enables logging from Quarkus to Elasticsearch</description>
 
-    <packaging>pom</packaging>
-
     <modules>
         <module>deployment</module>
         <module>runtime</module>
     </modules>
+
 
     <dependencyManagement>
         <dependencies>
@@ -42,6 +42,39 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>codinux</id>
+            <name>codinux GmbH &amp; Co. KG</name>
+            <email>git@codinux.net</email>
+            <url>https://codinux.net/</url>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:codinux-gmbh/quarkus-elasticsearch-logger.git</connection>
+        <url>scm:git:git@github.com:codinux-gmbh/quarkus-elasticsearch-logger.git</url>
+        <developerConnection>scm:git:git@github.com:codinux-gmbh/quarkus-elasticsearch-logger.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/codinux-gmbh/quarkus-elasticsearch-logger/issues/</url>
+    </issueManagement>
+
+    <packaging>pom</packaging>
+
 
     <build>
         <pluginManagement>
