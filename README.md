@@ -26,10 +26,11 @@ Minimal required configuration:
 quarkus.log.elasticsearch.host=http://localhost:9200
 ```
 
-For best also specify the index to send logs to:
+Preferably also set index name and depending on your setup disable logging to Elasticsearch in tests and dev mode:
 ```
 quarkus.log.elasticsearch.host=http://localhost:9200
-quarkus.log.elasticsearch.index=logs-my-app
+quarkus.log.elasticsearch.index=my-app-logs
+%test.quarkus.log.elasticsearch.enable=false
 ```
 
 Full list of all settings with their default value:
