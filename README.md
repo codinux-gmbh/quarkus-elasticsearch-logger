@@ -30,6 +30,7 @@ Preferably also set index name and depending on your setup disable logging to El
 ```
 quarkus.log.elasticsearch.host=http://localhost:9200
 quarkus.log.elasticsearch.index=my-app-logs
+%dev.quarkus.log.elasticsearch.enable=false
 %test.quarkus.log.elasticsearch.enable=false
 ```
 
