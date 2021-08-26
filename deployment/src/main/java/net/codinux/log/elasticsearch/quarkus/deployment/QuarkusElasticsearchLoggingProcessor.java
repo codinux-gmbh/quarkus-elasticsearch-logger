@@ -5,7 +5,7 @@ import io.quarkus.deployment.builditem.FeatureBuildItem;
 
 class QuarkusElasticsearchLoggingProcessor {
 
-    private static final String FEATURE = "logging-elasticsearch";
+    private static final String FEATURE = "elasticsearch-logger";
 
 
     @BuildStep
