@@ -26,6 +26,9 @@ public class QuarkusElasticsearchLogHandler extends JBossLoggingElasticsearchLog
                 config.include.logLevel,
                 config.fieldname.logLevel,
 
+                config.include.logger,
+                config.fieldname.logger,
+
                 config.include.loggerName,
                 config.fieldname.loggerName,
 

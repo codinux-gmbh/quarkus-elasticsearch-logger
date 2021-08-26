@@ -14,9 +14,16 @@ public class IncludeConfig {
     public boolean logLevel;
 
     /**
-     * If the logger name field should be included in Elasticsearch.
+     * If the full qualified name of the logger should be included in Elasticsearch.
      */
-    @ConfigItem(name = "logger", defaultValue = "" + LoggerSettings.IncludeLoggerNameDefaultValue)
+    @ConfigItem(name = "logger", defaultValue = "" + LoggerSettings.IncludeLoggerDefaultValue)
+    public boolean logger;
+
+    /**
+     * In most cases the logger is a full qualified class name including the package names.
+     * If Elasticsearch logger should try to extract a class name - that is without package name - of the logger and include it in Elasticsearch.
+     */
+    @ConfigItem(name = "loggername", defaultValue = "" + LoggerSettings.IncludeLoggerNameDefaultValue)
     public boolean loggerName;
 
     /**

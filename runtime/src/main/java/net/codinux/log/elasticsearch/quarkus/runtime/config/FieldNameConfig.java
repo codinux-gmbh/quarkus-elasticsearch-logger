@@ -26,9 +26,17 @@ public class FieldNameConfig {
     public String logLevel;
 
     /**
-     * The name of the logger name field.
+     * The name of the logger field (that is the full qualified logger name which includes in most cases the package names).
      */
-    @ConfigItem(name = "logger", defaultValue = LoggerSettings.LoggerNameDefaultFieldName)
+    @ConfigItem(name = "logger", defaultValue = LoggerSettings.LoggerDefaultFieldName)
+    public String logger;
+
+    /**
+     * In most cases the logger is a full qualified class name including the package names.
+     * Elasticsearch logger can try to extract only class' name from full qualified logger and log this.
+     * This is the field name for this.
+     */
+    @ConfigItem(name = "loggername", defaultValue = LoggerSettings.LoggerNameDefaultFieldName)
     public String loggerName;
 
     /**
