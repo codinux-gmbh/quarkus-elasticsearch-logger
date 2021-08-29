@@ -3,8 +3,15 @@ package net.codinux.log.elasticsearch.quarkus.runtime.config;
 import io.quarkus.runtime.annotations.ConfigItem;
 import io.quarkus.runtime.annotations.ConfigPhase;
 import io.quarkus.runtime.annotations.ConfigRoot;
-import io.quarkus.runtime.annotations.ConvertWith;
-import net.codinux.log.elasticsearch.TimestampFormat;
+import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.HostNameConfig;
+import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.LogLevelConfig;
+import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.LoggerConfig;
+import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.LoggerNameConfig;
+import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.MdcConfig;
+import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.MessageConfig;
+import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.StacktraceConfig;
+import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.ThreadNameConfig;
+import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.TimestampConfig;
 
 @ConfigRoot(phase = ConfigPhase.RUN_TIME, name = "log.elasticsearch")
 public class ElasticsearchLoggingConfig {
@@ -27,15 +34,34 @@ public class ElasticsearchLoggingConfig {
     @ConfigItem(name = "index", defaultValue = "logs")
     public String indexName;
 
+    public MessageConfig message;
+
+    public TimestampConfig timestamp;
+
+    public LogLevelConfig level;
+
+    public LoggerConfig logger;
+
     /**
-     * The format in which timestamp gets logged, either "millis" (= millis since epoch) or "formatted" (formats the timestamp as 'yyyy-MM-dd'T'HH:mm:ss.SSSZ').
+     * Config for the logger name.
      */
-    @ConfigItem(name = "timestampformat", defaultValue = TimestampFormatConverter.FORMATTED_FIELD_VALUE)
-    @ConvertWith(TimestampFormatConverter.class)
-    public TimestampFormat timestampFormat;
+    @ConfigItem(name = "loggername")
+    public LoggerNameConfig loggerName;
 
-    public IncludeConfig include;
+    /**
+     * Config for the host name.
+     */
+    @ConfigItem(name = "hostname")
+    public HostNameConfig hostName;
 
-    public FieldNameConfig fieldname;
+    /**
+     * Config for the thread name.
+     */
+    @ConfigItem(name = "threadname")
+    public ThreadNameConfig threadName;
+
+    public StacktraceConfig stacktrace;
+
+    public MdcConfig mdc;
 
 }
