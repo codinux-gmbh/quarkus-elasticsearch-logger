@@ -20,8 +20,8 @@ public class QuarkusElasticsearchLogHandler extends JBossLoggingElasticsearchLog
 
                 config.message.fieldName,
 
-                config.timestamp.fieldName,
                 config.timestamp.format,
+                config.timestamp.fieldName,
 
                 config.level.include,
                 config.level.fieldName,
