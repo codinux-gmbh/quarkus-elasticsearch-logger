@@ -3,6 +3,7 @@ package net.codinux.log.elasticsearch.quarkus.runtime.config;
 import io.quarkus.runtime.annotations.ConfigItem;
 import io.quarkus.runtime.annotations.ConfigPhase;
 import io.quarkus.runtime.annotations.ConfigRoot;
+import net.codinux.log.elasticsearch.LoggerSettings;
 import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.HostNameConfig;
 import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.LogLevelConfig;
 import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.LoggerConfig;
@@ -63,5 +64,23 @@ public class ElasticsearchLoggingConfig {
     public StacktraceConfig stacktrace;
 
     public MdcConfig mdc;
+
+    /**
+     * The maximum number of log records that are send in one batch to Elasticsearch.
+     */
+    @ConfigItem(defaultValue = "" + LoggerSettings.MaxLogRecordsPerBatchDefaultValue)
+    public int maxLogRecordsPerBatch;
+
+    /**
+     * The maximum number of log records being buffered before the get dropped and therefore irrevocably get lost.
+     */
+    @ConfigItem(defaultValue = "" + LoggerSettings.MaxBufferedLogRecordsDefaultValue)
+    public int maxBufferedLogRecords;
+
+    /**
+     * The interval in which log records get send to Elasticsearch in milliseconds.
+     */
+    @ConfigItem(defaultValue = "" + LoggerSettings.SendLogRecordsPeriodMillisDefaultValue)
+    public int sendLogRecordsPeriodMillis;
 
 }

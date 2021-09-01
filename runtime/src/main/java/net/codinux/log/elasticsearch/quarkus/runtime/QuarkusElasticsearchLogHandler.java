@@ -43,9 +43,9 @@ public class QuarkusElasticsearchLogHandler extends JBossLoggingElasticsearchLog
 
                 config.mdc.include,
 
-                LoggerSettings.MaxLogRecordsPerBatchDefaultValue,
-                LoggerSettings.MaxBufferedLogRecordsDefaultValue,
-                LoggerSettings.SendLogRecordsPeriodMillisDefaultValue
+                config.maxLogRecordsPerBatch,
+                config.maxBufferedLogRecords,
+                config.sendLogRecordsPeriodMillis
         );
     }
 
