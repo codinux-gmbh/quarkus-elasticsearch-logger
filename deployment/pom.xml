@@ -8,7 +8,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>${artifactIdBase}-deployment</artifactId>
+    <artifactId>quarkus-elasticsearch-logger-deployment</artifactId>
     <name>Enables logging from Quarkus to Elasticsearch - Deployment</name>
 
     <dependencies>
@@ -45,6 +45,35 @@
         </dependency>
 
     </dependencies>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>codinux</id>
+            <name>codinux GmbH &amp; Co. KG</name>
+            <email>git@codinux.net</email>
+            <url>https://codinux.net/</url>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:codinux-gmbh/quarkus-elasticsearch-logger.git</connection>
+        <url>scm:git:git@github.com:codinux-gmbh/quarkus-elasticsearch-logger.git</url>
+        <developerConnection>scm:git:git@github.com:codinux-gmbh/quarkus-elasticsearch-logger.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/codinux-gmbh/quarkus-elasticsearch-logger/issues/</url>
+    </issueManagement>
 
     <build>
         <plugins>
