@@ -16,6 +16,10 @@ public class ElasticsearchLoggingRecorder {
             return new RuntimeValue<>(Optional.empty());
         }
 
+        if (config.elasticsearchHost == null || config.elasticsearchHost.isBlank()) {
+            throw new IllegalArgumentException("If elasticsearch-logger is enabled, host value pointing to your Elasticsearch instance must be configured");
+        }
+
         return new RuntimeValue<>(Optional.of(new QuarkusElasticsearchLogHandler(config)));
     }
 
