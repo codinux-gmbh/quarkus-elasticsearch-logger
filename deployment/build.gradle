@@ -1,0 +1,18 @@
+plugins {
+    id "java-library"
+}
+
+ext.artifactName = "quarkus-elasticsearch-logger-deployment"
+
+ext.projectDescription = "Enables logging from Quarkus to Elasticsearch - Deployment"
+
+
+dependencies {
+    implementation "io.quarkus:quarkus-core-deployment:$quarkusVersion"
+    implementation "net.codinux.log:quarkus-elasticsearch-logger:$version"
+
+    testImplementation "io.quarkus:quarkus-junit5-internal:$quarkusVersion"
+    testImplementation "io.quarkus:quarkus-junit5:$quarkusVersion"
+    testImplementation "io.quarkus:quarkus-arc-deployment:$quarkusVersion"
+    testImplementation "org.assertj:assertj-core:3.16.1"
+}

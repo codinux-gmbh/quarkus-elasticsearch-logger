@@ -1,0 +1,16 @@
+plugins {
+    id "java-library"
+}
+
+ext.artifactName = "quarkus-elasticsearch-logger"
+
+ext.projectDescription = "Provides logging from Quarkus to Elasticsearch - Runtime"
+
+
+dependencies {
+    implementation "io.quarkus:quarkus-core:$quarkusVersion"
+
+    implementation "net.codinux.log:jboss-logger-elasticsearch-logger:$version"
+
+    implementation "org.jboss.logmanager:jboss-logmanager-embedded:1.0.4"
+}
