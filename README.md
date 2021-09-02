@@ -8,14 +8,14 @@ Just add it to your quarkus project with Maven
 <dependency>
     <groupId>net.codinux.log</groupId>
     <artifactId>quarkus-elasticsearch-logger</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
 or Gradle
 
 ```
-implementation 'net.codinux.log:quarkus-elasticsearch-logger:1.0.0-SNAPSHOT'
+implementation 'net.codinux.log:quarkus-elasticsearch-logger:1.0.0'
 ```
 
 ## Configuration
