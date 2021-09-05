@@ -1,5 +1,14 @@
-**.iml
-.idea
-**/target
+.idea/
+*.iml
+
 **/build
+**/out
+**/target
 /buildSrc
+
+.gradle
+
+/local.properties
+
+.DS_Store
+.externalNativeBuild
