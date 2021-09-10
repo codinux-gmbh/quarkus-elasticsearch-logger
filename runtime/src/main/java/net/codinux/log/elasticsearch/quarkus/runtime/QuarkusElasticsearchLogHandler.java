@@ -7,8 +7,11 @@ import net.codinux.log.elasticsearch.quarkus.runtime.config.ElasticsearchLogging
 
 public class QuarkusElasticsearchLogHandler extends JBossLoggingElasticsearchLogHandler {
 
+    public static final String ERROR_LOGGER_DEFAULT_NAME = "net.codinux.log.ElasticsearchLogger";
+
+
     public QuarkusElasticsearchLogHandler(ElasticsearchLoggingConfig config) {
-        super(mapSettings(config), new JBossLoggingErrorHandler("net.codinux.log.ElasticsearchLogger"));
+        super(mapSettings(config), new JBossLoggingErrorHandler(config.errorLoggerName));
     }
 
     private static net.codinux.log.elasticsearch.LoggerSettings mapSettings(ElasticsearchLoggingConfig config) {

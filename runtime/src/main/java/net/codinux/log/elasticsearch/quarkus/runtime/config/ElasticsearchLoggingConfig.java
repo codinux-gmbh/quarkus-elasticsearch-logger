@@ -4,6 +4,7 @@ import io.quarkus.runtime.annotations.ConfigItem;
 import io.quarkus.runtime.annotations.ConfigPhase;
 import io.quarkus.runtime.annotations.ConfigRoot;
 import net.codinux.log.elasticsearch.LoggerSettings;
+import net.codinux.log.elasticsearch.quarkus.runtime.QuarkusElasticsearchLogHandler;
 import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.HostNameConfig;
 import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.LogLevelConfig;
 import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.LoggerConfig;
@@ -82,5 +83,11 @@ public class ElasticsearchLoggingConfig {
      */
     @ConfigItem(defaultValue = "" + LoggerSettings.SendLogRecordsPeriodMillisDefaultValue)
     public int sendLogRecordsPeriodMillis;
+
+    /**
+     * The logger name under which Elasticsearch Logger logs its internal errors.
+     */
+    @ConfigItem(defaultValue = "" + QuarkusElasticsearchLogHandler.ERROR_LOGGER_DEFAULT_NAME)
+    public String errorLoggerName;
 
 }
