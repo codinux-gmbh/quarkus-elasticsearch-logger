@@ -87,7 +87,15 @@ public class ElasticsearchLoggingConfig {
     /**
      * The logger name under which Elasticsearch Logger logs its internal errors.
      */
-    @ConfigItem(defaultValue = "" + QuarkusElasticsearchLogHandler.ERROR_LOGGER_DEFAULT_NAME)
+    @ConfigItem(defaultValue = QuarkusElasticsearchLogHandler.ERROR_LOGGER_DEFAULT_NAME)
     public String errorLoggerName;
+
+    /**
+     * To not flood logs with errors like ConnectionException internal errors get logged only once per a configurable period (default: once per 30 minutes).
+     * Accepted formats are based on the ISO-8601 duration format. The format for the value is "PnDTnHnMn.nS" where "nDT" means "n" number of 
+     * Days, "nH" means "n" number of Hours, "nM" means "n" number of Minutes and "nS" means "n" number of Seconds.
+     */
+    @ConfigItem(defaultValue = QuarkusElasticsearchLogHandler.PERIOD_TO_LOG_ERRORS_DEFAULT_STRING)
+    public String periodToLogErrors;
 
 }

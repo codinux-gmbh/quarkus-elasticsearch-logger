@@ -3,15 +3,20 @@ package net.codinux.log.elasticsearch.quarkus.runtime;
 import net.codinux.log.elasticsearch.JBossLoggingElasticsearchLogHandler;
 import net.codinux.log.elasticsearch.LoggerSettings;
 import net.codinux.log.elasticsearch.errorhandler.JBossLoggingErrorHandler;
+import net.codinux.log.elasticsearch.errorhandler.LogPerPeriodErrorHandler;
 import net.codinux.log.elasticsearch.quarkus.runtime.config.ElasticsearchLoggingConfig;
+
+import java.time.Duration;
 
 public class QuarkusElasticsearchLogHandler extends JBossLoggingElasticsearchLogHandler {
 
     public static final String ERROR_LOGGER_DEFAULT_NAME = "net.codinux.log.ElasticsearchLogger";
 
+    public static final String PERIOD_TO_LOG_ERRORS_DEFAULT_STRING = "PT30M";
+
 
     public QuarkusElasticsearchLogHandler(ElasticsearchLoggingConfig config) {
-        super(mapSettings(config), new JBossLoggingErrorHandler(config.errorLoggerName));
+        super(mapSettings(config), new LogPerPeriodErrorHandler(Duration.parse(config.periodToLogErrors), new JBossLoggingErrorHandler(config.errorLoggerName)));
     }
 
     private static net.codinux.log.elasticsearch.LoggerSettings mapSettings(ElasticsearchLoggingConfig config) {
