@@ -8,14 +8,14 @@ Just add it to your quarkus project with Maven
 <dependency>
     <groupId>net.codinux.log</groupId>
     <artifactId>quarkus-elasticsearch-logger</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 
 or Gradle
 
 ```
-implementation 'net.codinux.log:quarkus-elasticsearch-logger:1.0.0'
+implementation 'net.codinux.log:quarkus-elasticsearch-logger:1.1.0'
 ```
 
 ## Configuration
@@ -38,25 +38,41 @@ Full list of all settings with their default value:
 ```
 quarkus.log.elasticsearch.host=<only required configuration>
 
+quarkus.log.elasticsearch.enable=true
+
 quarkus.log.elasticsearch.index=logs
 
-# alternative value: millis
-quarkus.log.elasticsearch.timestampformat=formatted
+quarkus.log.elasticsearch.message.fieldname=message
 
-quarkus.log.elasticsearch.include.level=true
-quarkus.log.elasticsearch.include.logger=true
-quarkus.log.elasticsearch.include.thread=true
-quarkus.log.elasticsearch.include.hostname=true
-quarkus.log.elasticsearch.include.stacktrace=true
-quarkus.log.elasticsearch.include.mdc=true
+# alternative value: millis, soon to be renamed to millis / nanos
+quarkus.log.elasticsearch.timestamp.format=formatted
+quarkus.log.elasticsearch.timestamp.fieldname=@timestamp
 
-quarkus.log.elasticsearch.fieldname.message=message
-quarkus.log.elasticsearch.fieldname.timestamp=@timestamp
-quarkus.log.elasticsearch.fieldname.level=level
-quarkus.log.elasticsearch.fieldname.logger=logger
-quarkus.log.elasticsearch.fieldname.thread=thread
-quarkus.log.elasticsearch.fieldname.hostname=host
-quarkus.log.elasticsearch.fieldname.stacktrace=stacktrace
+quarkus.log.elasticsearch.level.include=true
+quarkus.log.elasticsearch.level.fieldname=level
+
+quarkus.log.elasticsearch.logger.include=true
+quarkus.log.elasticsearch.logger.fieldname=logger
+
+quarkus.log.elasticsearch.loggername.include=false
+quarkus.log.elasticsearch.loggername.fieldname=loggername
+
+quarkus.log.elasticsearch.threadname.include=true
+quarkus.log.elasticsearch.threadname.fieldname=thread
+
+quarkus.log.elasticsearch.hostname.include=true
+quarkus.log.elasticsearch.hostname.fieldname=hos
+
+quarkus.log.elasticsearch.stacktrace.include=true
+quarkus.log.elasticsearch.stacktrace.fieldname=stacktrace
+
+quarkus.log.elasticsearch.mdc.include=true
+
+quarkus.log.elasticsearch.send-log-records-period-millis=100
+quarkus.log.elasticsearch.max-log-records-per-batch=100
+quarkus.log.elasticsearch.max-buffered-log-records=2000
+quarkus.log.elasticsearch.period-to-log-errors=PT30M
+quarkus.log.elasticsearch.error-logger-name=net.codinux.log.ElasticsearchLogger
 ```
 
 
