@@ -1,9 +1,9 @@
-package net.codinux.log.elasticsearch.quarkus.runtime.config.fields;
+package net.codinux.log.elasticsearch.quarkus.runtime.config.converter;
 
 import net.codinux.log.elasticsearch.TimestampFormat;
 import org.eclipse.microprofile.config.spi.Converter;
 
-public class TimestampFormatConverter  implements Converter<TimestampFormat> {
+public class TimestampFormatConverter implements Converter<TimestampFormat> {
 
     public static final String MILLIS_FIELD_VALUE = "millis";
 

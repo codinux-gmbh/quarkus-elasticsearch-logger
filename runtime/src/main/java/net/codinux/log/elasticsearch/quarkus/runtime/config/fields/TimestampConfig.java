@@ -4,6 +4,7 @@ import io.quarkus.runtime.annotations.ConfigGroup;
 import io.quarkus.runtime.annotations.ConfigItem;
 import io.quarkus.runtime.annotations.ConvertWith;
 import net.codinux.log.elasticsearch.TimestampFormat;
+import net.codinux.log.elasticsearch.quarkus.runtime.config.converter.TimestampFormatConverter;
 
 @ConfigGroup
 public class TimestampConfig {
