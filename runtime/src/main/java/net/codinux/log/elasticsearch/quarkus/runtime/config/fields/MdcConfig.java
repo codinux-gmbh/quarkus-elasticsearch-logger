@@ -19,8 +19,12 @@ public class MdcConfig {
      * Sets a prefix for all MDC keys.
      *
      * E.g. prefix is set to "mdc", then the MDC gets stored as:
-     * mdc.<key_1>=<value_1>
-     * mdc.<key_2>=<value_2>
+     *  mdc.key_1=value_1
+     *  mdc.key_2=value_2
+     *
+     * instead of:
+     *  key_1=value_1
+     *  key_2=value_2
      */
     @ConfigItem(defaultValue = DefaultConfigValues.DisableFieldNamePrefix)
     @ConvertWith(FieldNamePrefixConverter.class)
