@@ -54,6 +54,8 @@ quarkus.log.elasticsearch.level.fieldname=level
 quarkus.log.elasticsearch.logger.include=true
 quarkus.log.elasticsearch.logger.fieldname=logger
 
+# In most cases the logger is a full qualified class name including the package names.
+# If ElasticsearchLogger should try to extract the class name - that is without package name - of the logger then set this value to true
 quarkus.log.elasticsearch.loggername.include=false
 quarkus.log.elasticsearch.loggername.fieldname=loggername
 
@@ -67,6 +69,8 @@ quarkus.log.elasticsearch.stacktrace.include=true
 quarkus.log.elasticsearch.stacktrace.fieldname=stacktrace
 
 quarkus.log.elasticsearch.mdc.include=true
+# set e.g. to "mdc" to have all your MDC keys prefixed with "mdc."; use special value "off" to turn prefixing field names off (=default value)
+quarkus.log.elasticsearch.mdc.prefix=off
 
 quarkus.log.elasticsearch.send-log-records-period-millis=100
 quarkus.log.elasticsearch.max-log-records-per-batch=100
