@@ -44,8 +44,8 @@ quarkus.log.elasticsearch.index=logs
 
 quarkus.log.elasticsearch.message.fieldname=message
 
-# alternative value: millis, soon to be renamed to millis / nanos
-quarkus.log.elasticsearch.timestamp.format=formatted
+# in which resolution timestamps should get indexed, millis, micros or nanos
+quarkus.log.elasticsearch.timestamp.resolution=millis
 quarkus.log.elasticsearch.timestamp.fieldname=@timestamp
 
 quarkus.log.elasticsearch.level.include=true
