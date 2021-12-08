@@ -18,7 +18,7 @@ public class DemoApplication {
 
     @PostConstruct
     void sampleLogOutput() {
-        MDC.put("tracingId", UUID.randomUUID().toString()); // as a sample adds a tracingId to all logs below
+        MDC.put("traceId", UUID.randomUUID().toString()); // as a sample adds a traceId to all logs below
 
         log.debug("My log level is too low, I will not be logged");
 
@@ -30,7 +30,7 @@ public class DemoApplication {
         log.error("Error with Exception", new Exception("Just a test, no animals were harmed during these tests"));
 
         MDC.put("key1", "value1");
-        log.info("Width seconds MDC value");
+        log.info("With second MDC value");
     }
 
 }
