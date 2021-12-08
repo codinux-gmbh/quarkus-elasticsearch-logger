@@ -69,8 +69,8 @@ quarkus.log.elasticsearch.stacktrace.include=true
 quarkus.log.elasticsearch.stacktrace.fieldname=stacktrace
 
 quarkus.log.elasticsearch.mdc.include=true
-# set e.g. to "mdc" to have all your MDC keys prefixed with "mdc."; use special value "off" to turn prefixing field names off (=default value)
-quarkus.log.elasticsearch.mdc.prefix=off
+# set e.g. to "mdc" to have all your MDC keys prefixed with "mdc."; use special value "off" to turn prefixing field names off
+quarkus.log.elasticsearch.mdc.prefix=mdc
 
 # includes info about current pod if running in a Kubernetes environment (will be ignored if running outside Kubernetes)
 quarkus.log.elasticsearch.kubernetes.include=false

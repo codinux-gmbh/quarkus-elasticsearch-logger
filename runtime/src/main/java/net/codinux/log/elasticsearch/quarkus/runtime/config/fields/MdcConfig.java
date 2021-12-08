@@ -3,7 +3,6 @@ package net.codinux.log.elasticsearch.quarkus.runtime.config.fields;
 import io.quarkus.runtime.annotations.ConfigGroup;
 import io.quarkus.runtime.annotations.ConfigItem;
 import io.quarkus.runtime.annotations.ConvertWith;
-import net.codinux.log.elasticsearch.quarkus.runtime.config.DefaultConfigValues;
 import net.codinux.log.elasticsearch.quarkus.runtime.config.converter.FieldNamePrefixConverter;
 
 @ConfigGroup
@@ -26,7 +25,7 @@ public class MdcConfig {
      *  key_1=value_1
      *  key_2=value_2
      */
-    @ConfigItem(defaultValue = DefaultConfigValues.DisableFieldNamePrefix)
+    @ConfigItem(defaultValue = "mdc") // TODO: use constant
     @ConvertWith(FieldNamePrefixConverter.class)
     public String prefix;
 
