@@ -2,6 +2,7 @@ package net.codinux.log.elasticsearch.quarkus.runtime.config.fields;
 
 import io.quarkus.runtime.annotations.ConfigGroup;
 import io.quarkus.runtime.annotations.ConfigItem;
+import net.codinux.log.elasticsearch.LoggerSettings;
 
 @ConfigGroup
 public class LoggerConfig {
@@ -15,7 +16,7 @@ public class LoggerConfig {
     /**
      * The name of the logger field (that is the full qualified logger name which includes in most cases the package names).
      */
-    @ConfigItem(name = "fieldname", defaultValue = "logger")
+    @ConfigItem(name = "fieldname", defaultValue = LoggerSettings.LoggerDefaultFieldName)
     public String fieldName;
 
 }

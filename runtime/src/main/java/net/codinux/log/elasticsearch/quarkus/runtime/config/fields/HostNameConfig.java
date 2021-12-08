@@ -2,6 +2,7 @@ package net.codinux.log.elasticsearch.quarkus.runtime.config.fields;
 
 import io.quarkus.runtime.annotations.ConfigGroup;
 import io.quarkus.runtime.annotations.ConfigItem;
+import net.codinux.log.elasticsearch.LoggerSettings;
 
 @ConfigGroup
 public class HostNameConfig {
@@ -15,7 +16,7 @@ public class HostNameConfig {
     /**
      * The name of the host name field.
      */
-    @ConfigItem(name = "fieldname", defaultValue = "host")
+    @ConfigItem(name = "fieldname", defaultValue = LoggerSettings.HostNameDefaultFieldName)
     public String fieldName;
 
 }

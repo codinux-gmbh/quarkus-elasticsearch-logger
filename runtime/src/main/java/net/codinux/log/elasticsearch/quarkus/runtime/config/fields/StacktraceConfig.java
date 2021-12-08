@@ -2,6 +2,7 @@ package net.codinux.log.elasticsearch.quarkus.runtime.config.fields;
 
 import io.quarkus.runtime.annotations.ConfigGroup;
 import io.quarkus.runtime.annotations.ConfigItem;
+import net.codinux.log.elasticsearch.LoggerSettings;
 
 @ConfigGroup
 public class StacktraceConfig {
@@ -15,7 +16,7 @@ public class StacktraceConfig {
     /**
      * The name of the stacktrace field.
      */
-    @ConfigItem(name = "fieldname", defaultValue = "stacktrace")
+    @ConfigItem(name = "fieldname", defaultValue = LoggerSettings.StacktraceDefaultFieldName)
     public String fieldName;
 
 }

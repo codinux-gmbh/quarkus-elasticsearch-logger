@@ -2,6 +2,7 @@ package net.codinux.log.elasticsearch.quarkus.runtime.config.fields;
 
 import io.quarkus.runtime.annotations.ConfigGroup;
 import io.quarkus.runtime.annotations.ConfigItem;
+import net.codinux.log.elasticsearch.LoggerSettings;
 
 @ConfigGroup
 public class ThreadNameConfig {
@@ -15,7 +16,7 @@ public class ThreadNameConfig {
     /**
      * The name of the thread name field.
      */
-    @ConfigItem(name = "fieldname", defaultValue = "thread")
+    @ConfigItem(name = "fieldname", defaultValue = LoggerSettings.ThreadNameDefaultFieldName)
     public String fieldName;
 
 }
