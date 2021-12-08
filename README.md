@@ -2,6 +2,13 @@
 
 Provides sending logs from Quarkus to Elasticsearch.
 
+## Features
+
+- Nanoseconds timestamp resolution (if supported by system), see set-up below
+- Supports MDC (Mapped Diagnostic Context)
+
+## Setup
+
 Just add it to your quarkus project with Maven
 
 ```
@@ -44,7 +51,8 @@ quarkus.log.elasticsearch.index=logs
 
 quarkus.log.elasticsearch.message.fieldname=message
 
-# in which resolution timestamps should get indexed, millis, micros or nanos
+# at which resolution timestamps should get indexed, millis, micros or nanos
+# see remarks below to enable resolutions higher than milliseconds in Elasticsearch
 quarkus.log.elasticsearch.timestamp.resolution=millis
 quarkus.log.elasticsearch.timestamp.fieldname=@timestamp
 
@@ -54,7 +62,7 @@ quarkus.log.elasticsearch.level.fieldname=level
 quarkus.log.elasticsearch.logger.include=true
 quarkus.log.elasticsearch.logger.fieldname=logger
 
-# In most cases the logger is a full qualified class name including the package names.
+# In most cases the logger is a full qualified class name including the package name.
 # If ElasticsearchLogger should try to extract the class name - that is without package name - of the logger then set this value to true
 quarkus.log.elasticsearch.loggername.include=false
 quarkus.log.elasticsearch.loggername.fieldname=loggername
@@ -63,16 +71,17 @@ quarkus.log.elasticsearch.threadname.include=true
 quarkus.log.elasticsearch.threadname.fieldname=thread
 
 quarkus.log.elasticsearch.hostname.include=true
-quarkus.log.elasticsearch.hostname.fieldname=hos
+quarkus.log.elasticsearch.hostname.fieldname=host
 
 quarkus.log.elasticsearch.stacktrace.include=true
 quarkus.log.elasticsearch.stacktrace.fieldname=stacktrace
 
+# if MDC (Mapped Diagnostic Context) should be included in Elasticsearch index.
 quarkus.log.elasticsearch.mdc.include=true
 # set e.g. to "mdc" to have all your MDC keys prefixed with "mdc."; use special value "off" to turn prefixing field names off
 quarkus.log.elasticsearch.mdc.prefix=mdc
 
-# includes info about current pod if running in a Kubernetes environment (will be ignored if running outside Kubernetes)
+# includes info about current pod in logs if running in a Kubernetes environment (will be ignored if application does not run in Kubernetes)
 quarkus.log.elasticsearch.kubernetes.include=false
 # the value all Kubernetes info keys will be prefixed with. Use empty string or special value "off" to turn prefixing field names off
 quarkus.log.elasticsearch.kubernetes.prefix=k8s
