@@ -36,7 +36,7 @@ quarkus.log.elasticsearch.host=http://localhost:9200
 Preferably also set index name and depending on your setup disable logging to Elasticsearch in tests and dev mode:
 ```
 quarkus.log.elasticsearch.host=http://localhost:9200
-quarkus.log.elasticsearch.index=my-app-logs
+quarkus.log.elasticsearch.index=logs
 %dev.quarkus.log.elasticsearch.enable=false
 %test.quarkus.log.elasticsearch.enable=false
 ```
