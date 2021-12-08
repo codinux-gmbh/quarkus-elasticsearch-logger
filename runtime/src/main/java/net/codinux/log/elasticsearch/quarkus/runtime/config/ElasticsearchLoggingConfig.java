@@ -6,6 +6,7 @@ import io.quarkus.runtime.annotations.ConfigRoot;
 import net.codinux.log.elasticsearch.LoggerSettings;
 import net.codinux.log.elasticsearch.quarkus.runtime.QuarkusElasticsearchLogHandler;
 import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.HostNameConfig;
+import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.KubernetesInfoConfig;
 import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.LogLevelConfig;
 import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.LoggerConfig;
 import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.LoggerNameConfig;
@@ -65,6 +66,8 @@ public class ElasticsearchLoggingConfig {
     public StacktraceConfig stacktrace;
 
     public MdcConfig mdc;
+
+    public KubernetesInfoConfig kubernetes;
 
     /**
      * The maximum number of log records that are send in one batch to Elasticsearch.

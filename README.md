@@ -72,6 +72,11 @@ quarkus.log.elasticsearch.mdc.include=true
 # set e.g. to "mdc" to have all your MDC keys prefixed with "mdc."; use special value "off" to turn prefixing field names off (=default value)
 quarkus.log.elasticsearch.mdc.prefix=off
 
+# includes info about current pod if running in a Kubernetes environment (will be ignored if running outside Kubernetes)
+quarkus.log.elasticsearch.kubernetes.include=false
+# the value all Kubernetes info keys will be prefixed with. Use empty string or special value "off" to turn prefixing field names off
+quarkus.log.elasticsearch.kubernetes.prefix=k8s
+
 quarkus.log.elasticsearch.send-log-records-period-millis=100
 quarkus.log.elasticsearch.max-log-records-per-batch=100
 quarkus.log.elasticsearch.max-buffered-log-records=2000
