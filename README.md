@@ -93,6 +93,80 @@ quarkus.log.elasticsearch.period-to-log-errors=PT30M
 quarkus.log.elasticsearch.error-logger-name=net.codinux.log.ElasticsearchLogger
 ```
 
+## Nanosecond timestamp precision
+
+Starting with Elasticsearch 7.0 and Kibana 7.5 timestamps with nanoseconds precision are supported by the new field type `date_nanos`.
+
+(!) Important: For having nanosecond precision the type of the timestamp field has to be set before the first log is send to the index. 
+Elasticsearch's dynamic mapping for date fields is `date`, which only has milliseconds precisions.
+The mapping of a field cannot be changed after the first record is indexed!
+
+You have multiple options to create the correct mapping beforehand.
+For all the following examples replace `http://localhost:9200` with the URL of your Elasticsearch instance, `my_app_logs` with the name of your log index and
+`@timestamp` with the name of your timestamp field:
+
+- Create the index with the correct mapping:
+
+URL:
+
+`PUT http://localhost:9200/my_app_logs`
+ 
+Body:
+```json
+{
+  "mappings": {
+    "properties": {
+      "@timestamp": {
+        "type": "date_nanos"
+      }
+    }
+  }
+}
+```
+
+- Set an index template for all your log indices (suppose all index names start with `logs-`)
+
+URL:
+
+`PUT http://localhost:9200/_template/log-indices-template`
+
+Body:
+```json
+{
+  "index_patterns": [ "logs-*" ],
+  "mappings": {
+    "properties": {
+      "@timestamp": {
+        "type": "date_nanos"
+      }
+    }
+  }
+}
+```
+
+Additionally may also set:
+```json
+{
+  "index_patterns": [ "logs-*" ],
+  "mappings": {
+    "properties": {
+      "@timestamp": {
+        "type": "date_nanos"
+      },
+      "level": {
+        "type": "keyword"
+      },
+      "message": {
+        "type": "text"
+      },
+      "stacktrace": {
+        "type": "keyword"
+      }
+    }
+  }
+}
+```
+
 
 # License
 
