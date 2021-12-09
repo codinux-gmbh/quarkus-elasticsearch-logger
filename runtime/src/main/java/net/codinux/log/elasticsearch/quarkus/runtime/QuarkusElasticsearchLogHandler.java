@@ -22,7 +22,7 @@ public class QuarkusElasticsearchLogHandler extends JBossLoggingElasticsearchLog
 
     private static net.codinux.log.elasticsearch.LoggerSettings mapSettings(ElasticsearchLoggingConfig config) {
         ElasticsearchIndexNameConverter indexNameConverter = new ElasticsearchIndexNameConverter();
-        String indexName = indexNameConverter.createIndexName(config.indexName, new JBossLoggingErrorHandler(config.errorLoggerName));
+        String indexName = indexNameConverter.buildIndexName(config.indexName, new JBossLoggingErrorHandler(config.errorLoggerName));
 
         return new LoggerSettings(
                 config.enable,
