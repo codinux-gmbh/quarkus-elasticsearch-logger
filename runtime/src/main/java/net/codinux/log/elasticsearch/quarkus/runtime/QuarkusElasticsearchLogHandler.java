@@ -2,6 +2,7 @@ package net.codinux.log.elasticsearch.quarkus.runtime;
 
 import net.codinux.log.elasticsearch.JBossLoggingElasticsearchLogHandler;
 import net.codinux.log.elasticsearch.LoggerSettings;
+import net.codinux.log.elasticsearch.converter.ElasticsearchIndexNameConverter;
 import net.codinux.log.elasticsearch.errorhandler.JBossLoggingErrorHandler;
 import net.codinux.log.elasticsearch.errorhandler.LogPerPeriodErrorHandler;
 import net.codinux.log.elasticsearch.quarkus.runtime.config.ElasticsearchLoggingConfig;
@@ -16,16 +17,19 @@ public class QuarkusElasticsearchLogHandler extends JBossLoggingElasticsearchLog
 
 
     public QuarkusElasticsearchLogHandler(ElasticsearchLoggingConfig config) {
-        super(mapSettings(config), new LogPerPeriodErrorHandler(Duration.parse(config.periodToLogErrors), new JBossLoggingErrorHandler(config.errorLoggerName)));
+        super(new LogPerPeriodErrorHandler(Duration.parse(config.periodToLogErrors), new JBossLoggingErrorHandler(config.errorLoggerName)), mapSettings(config));
     }
 
     private static net.codinux.log.elasticsearch.LoggerSettings mapSettings(ElasticsearchLoggingConfig config) {
+        ElasticsearchIndexNameConverter indexNameConverter = new ElasticsearchIndexNameConverter();
+        String indexName = indexNameConverter.createIndexName(config.indexName, new JBossLoggingErrorHandler(config.errorLoggerName));
+
         return new LoggerSettings(
                 config.enable,
 
                 config.elasticsearchHost,
 
-                config.indexName,
+                indexName,
 
                 config.message.fieldName,
 
