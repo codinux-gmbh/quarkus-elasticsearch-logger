@@ -12,7 +12,7 @@ public class KubernetesInfoConfig {
     /**
      * If Pod and Kubernetes info should be included in Elasticsearch index.
      */
-    @ConfigItem(defaultValue = "false")
+    @ConfigItem(defaultValue = LoggerSettings.IncludeKubernetesInfoDefaultValueString)
     public boolean include;
 
     /**

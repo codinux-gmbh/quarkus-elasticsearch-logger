@@ -22,7 +22,7 @@ public class ElasticsearchLoggingConfig {
     /**
      * If logging to Elasticsearch should be enabled or not.
      */
-    @ConfigItem(defaultValue = "true")
+    @ConfigItem(defaultValue = LoggerSettings.EnabledDefaultValueString)
     public boolean enable;
 
     /**
@@ -34,14 +34,18 @@ public class ElasticsearchLoggingConfig {
     /**
      * To which index to log to.
      */
-    @ConfigItem(name = "index", defaultValue = "logs")
+    @ConfigItem(name = "index", defaultValue = LoggerSettings.IndexNameDefaultValue)
     public String indexName;
 
     public MessageConfig message;
 
     public TimestampConfig timestamp;
 
-    public LogLevelConfig level;
+    /**
+     * Config for the log level.
+     */
+    @ConfigItem(name = "level")
+    public LogLevelConfig logLevel;
 
     public LoggerConfig logger;
 
@@ -67,7 +71,11 @@ public class ElasticsearchLoggingConfig {
 
     public MdcConfig mdc;
 
-    public KubernetesInfoConfig kubernetes;
+    /**
+     * Configure which Kubernetes values to include in log.
+     */
+    @ConfigItem(name = "kubernetes")
+    public KubernetesInfoConfig kubernetesInfo;
 
     /**
      * The maximum number of log records that are send in one batch to Elasticsearch.

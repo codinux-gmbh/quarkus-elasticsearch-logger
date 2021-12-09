@@ -32,8 +32,8 @@ public class QuarkusElasticsearchLogHandler extends JBossLoggingElasticsearchLog
                 config.timestamp.resolution,
                 config.timestamp.fieldName,
 
-                config.level.include,
-                config.level.fieldName,
+                config.logLevel.include,
+                config.logLevel.fieldName,
 
                 config.logger.include,
                 config.logger.fieldName,
@@ -53,8 +53,8 @@ public class QuarkusElasticsearchLogHandler extends JBossLoggingElasticsearchLog
                 config.mdc.include,
                 config.mdc.prefix,
 
-                config.kubernetes.include,
-                config.kubernetes.prefix,
+                config.kubernetesInfo.include,
+                config.kubernetesInfo.prefix,
 
                 config.maxLogRecordsPerBatch,
                 config.maxBufferedLogRecords,

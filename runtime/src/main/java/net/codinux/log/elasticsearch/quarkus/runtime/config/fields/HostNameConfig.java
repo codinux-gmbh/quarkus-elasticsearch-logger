@@ -10,7 +10,7 @@ public class HostNameConfig {
     /**
      * If the host name field should be included in Elasticsearch index.
      */
-    @ConfigItem(defaultValue = "true")
+    @ConfigItem(defaultValue = LoggerSettings.IncludeHostNameDefaultValueString)
     public boolean include;
 
     /**

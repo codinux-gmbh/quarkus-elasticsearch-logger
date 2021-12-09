@@ -10,7 +10,7 @@ public class StacktraceConfig {
     /**
      * If the stacktrace field should be included in Elasticsearch index.
      */
-    @ConfigItem(defaultValue = "true")
+    @ConfigItem(defaultValue = LoggerSettings.IncludeStacktraceDefaultValueString)
     public boolean include;
 
     /**

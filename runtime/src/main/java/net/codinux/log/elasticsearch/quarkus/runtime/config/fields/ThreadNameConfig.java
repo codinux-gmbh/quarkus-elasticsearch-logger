@@ -10,7 +10,7 @@ public class ThreadNameConfig {
     /**
      * If the thread name field should be included in Elasticsearch index.
      */
-    @ConfigItem(defaultValue = "true")
+    @ConfigItem(defaultValue = LoggerSettings.IncludeThreadNameDefaultValueString)
     public boolean include;
 
     /**

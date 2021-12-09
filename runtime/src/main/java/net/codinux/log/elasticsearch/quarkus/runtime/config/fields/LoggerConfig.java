@@ -10,7 +10,7 @@ public class LoggerConfig {
     /**
      * If the full qualified name of the logger should be included in Elasticsearch.
      */
-    @ConfigItem(defaultValue = "true")
+    @ConfigItem(defaultValue = LoggerSettings.IncludeLoggerDefaultValueString)
     public boolean include;
 
     /**

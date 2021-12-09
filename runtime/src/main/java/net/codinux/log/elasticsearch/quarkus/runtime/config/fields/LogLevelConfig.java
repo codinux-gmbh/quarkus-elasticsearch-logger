@@ -10,7 +10,7 @@ public class LogLevelConfig {
     /**
      * If the log level field should be included in Elasticsearch index.
      */
-    @ConfigItem(defaultValue = "true")
+    @ConfigItem(defaultValue = LoggerSettings.IncludeLogLevelDefaultValueString)
     public boolean include;
 
     /**
