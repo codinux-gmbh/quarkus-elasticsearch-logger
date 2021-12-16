@@ -1,9 +1,11 @@
 package net.codinux.log.elasticsearch.quarkus.sample;
 
 import io.quarkus.runtime.Startup;
+import org.jboss.logging.NDC;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
+import org.slf4j.MarkerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
@@ -31,6 +33,14 @@ public class DemoApplication {
 
         MDC.put("key1", "value1");
         log.info("With second MDC value");
+
+        NDC.push("NDC 1");
+        NDC.push("NDC 2");
+        log.info("Message with NDC");
+        NDC.clear();
+
+        // Marker seems not to be supported by JBoss Logging, will have no effect
+        log.info(MarkerFactory.getMarker("ImportantMarker"), "Message with marker, but will have no effect in JBoss Logging");
     }
 
 }

@@ -83,6 +83,13 @@ quarkus.log.elasticsearch.mdc.include=true
 # set e.g. to "mdc" to have all your MDC keys prefixed with "mdc."; use special value "off" to turn prefixing field names off
 quarkus.log.elasticsearch.mdc.prefix=mdc
 
+# JBoss Logging does not seem to support Marker
+quarkus.log.elasticsearch.marker.include=false
+quarkus.log.elasticsearch.marker.fieldname=marker
+
+quarkus.log.elasticsearch.ndc.include=false
+quarkus.log.elasticsearch.ndc.fieldname=ndc
+
 # includes info about current pod in logs if running in a Kubernetes environment (will be ignored if application does not run in Kubernetes)
 quarkus.log.elasticsearch.kubernetes.include=false
 # the value all Kubernetes info keys will be prefixed with. Use empty string or special value "off" to turn prefixing field names off
@@ -161,16 +168,73 @@ Additionally may also set:
       "@timestamp": {
         "type": "date_nanos"
       },
-      "level": {
-        "type": "keyword"
+      "level" : {
+        "type" : "keyword"
       },
-      "message": {
-        "type": "text"
+      "loggername" : {
+        "type" : "keyword"
       },
-      "stacktrace": {
-        "type": "keyword"
+      "message" : {
+        "type" : "text"
+      },
+      "thread" : {
+        "type" : "keyword"
+      },
+      "stacktrace" : {
+        "type" : "keyword"
+      },
+      "marker" : {
+        "type" : "keyword"
+      },
+      "ndc" : {
+        "type" : "keyword"
+      },
+      "k8s" : {
+        "properties": {
+          "restartCount" : {
+            "type" : "long"
+          },
+          "startTime" : {
+            "type" : "date"
+          }
+        }
       }
-    }
+    },
+    "dynamic_templates" : [
+      {
+        "mdc": {
+          "path_match" : "mdc.*",
+          "mapping" : {
+            "type": "keyword"
+          }
+        }
+      },
+      {
+        "k8s-annotations" : {
+          "path_match" : "k8s.annotation.*",
+          "mapping" : {
+            "type" : "keyword"
+          }
+        }
+      },
+      {
+        "k8s-labels" : {
+          "path_match" : "k8s.label.*",
+          "mapping" : {
+            "type" : "keyword"
+          }
+        }
+      },
+      {
+        "k8s" : {
+          "path_match" : "k8s.*",
+          "path_unmatch": "k8s.[restartCount|startTime|annotation|label]",
+          "mapping" : {
+            "type" : "keyword"
+          }
+        }
+      }
+    ]
   }
 }
 ```

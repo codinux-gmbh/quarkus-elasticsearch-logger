@@ -6,6 +6,8 @@ import io.quarkus.runtime.annotations.ConfigRoot;
 import net.codinux.log.elasticsearch.LoggerSettings;
 import net.codinux.log.elasticsearch.quarkus.runtime.QuarkusElasticsearchLogHandler;
 import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.HostNameConfig;
+import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.MarkerConfig;
+import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.NdcConfig;
 import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.kubernetes.KubernetesInfoConfig;
 import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.LogLevelConfig;
 import net.codinux.log.elasticsearch.quarkus.runtime.config.fields.LoggerConfig;
@@ -70,6 +72,10 @@ public class ElasticsearchLoggingConfig {
     public StacktraceConfig stacktrace;
 
     public MdcConfig mdc;
+
+    public MarkerConfig marker;
+
+    public NdcConfig ndc;
 
     /**
      * Configure which Kubernetes values to include in log.
