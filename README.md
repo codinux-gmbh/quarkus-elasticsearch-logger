@@ -4,8 +4,14 @@ Provides sending logs from Quarkus to Elasticsearch.
 
 ## Features
 
-- Nanoseconds timestamp resolution (if supported by system), see set-up below
-- Supports MDC (Mapped Diagnostic Context)
+- Logs directly to Elasticsearch
+- Buffers messages and sends them asynchronously each 100 ms (configurable) in a bulk message to Elasticsearch to reduce round trips(?)
+- Supports timestamps with nanoseconds resolution (if supported by system), see [Nanosecond timestamp precision](#nanosecond-timestamp-precision)
+- Supports MDC and NDC
+- Supports retrieving and logging pod and Kubernetes info in Kubernetes environments
+- Each field can be configured individually if it should be included in or excluded from sending to Elasticsearch
+- All field names are configurable
+- Supports index-per-day, e.g. by setting index name to log-%date{yyyy.MM.dd}
 
 ## Setup
 
