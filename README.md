@@ -21,14 +21,14 @@ Just add it to your quarkus project with Maven
 <dependency>
     <groupId>net.codinux.log</groupId>
     <artifactId>quarkus-elasticsearch-logger</artifactId>
-    <version>2.0.3-SNAPSHOT</version>
+    <version>2.1.0</version>
 </dependency>
 ```
 
 or Gradle
 
 ```
-implementation 'net.codinux.log:quarkus-elasticsearch-logger:2.0.3-SNAPSHOT'
+implementation 'net.codinux.log:quarkus-elasticsearch-logger:2.1.0'
 ```
 
 ## Configuration
@@ -54,8 +54,8 @@ quarkus.log.elasticsearch.host=<only required configuration>
 quarkus.log.elasticsearch.enable=true
 
 quarkus.log.elasticsearch.index=logs
-# can also expand current date time with %date{<date_time_patter>}, where <date_time_pattern> can be any pattern that java.time.format.DateTimeFormatter supports
-#quarkus.log.elasticsearch.index=logs_%date{yyyy-MM-dd}
+# supports also index-per-day with %date{<date_time_patter>}, where <date_time_pattern> can be any pattern that java.time.format.DateTimeFormatter supports
+#quarkus.log.elasticsearch.index=log-%date{yyyy.MM.dd}
 
 quarkus.log.elasticsearch.message.fieldname=message
 
