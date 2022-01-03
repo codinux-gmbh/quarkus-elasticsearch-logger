@@ -120,7 +120,7 @@ Starting with Elasticsearch 7.0 and Kibana 7.5 timestamps with nanoseconds preci
 
 (!) Important: For having nanosecond precision the type of the timestamp field has to be set before the first log is send to the index. 
 Elasticsearch's dynamic mapping for date fields is `date`, which only has milliseconds precisions.
-The mapping of a field cannot be changed after the first record is indexed!
+The mapping of a field cannot be changed after the first record is indexed.
 
 You have multiple options to create the correct mapping beforehand.
 For all the following examples replace `http://localhost:9200` with the URL of your Elasticsearch instance, `my_app_logs` with the name of your log index and
@@ -145,7 +145,7 @@ Body:
 }
 ```
 
-- Set an index template for all your log indices (suppose all index names start with `logs-`)
+- Set an index template for all your log indices (suppose all index names start with `log-`)
 
 URL:
 
@@ -154,7 +154,7 @@ URL:
 Body:
 ```json
 {
-  "index_patterns": [ "logs-*" ],
+  "index_patterns": [ "log-*" ],
   "mappings": {
     "properties": {
       "@timestamp": {
@@ -168,73 +168,20 @@ Body:
 Additionally may also set:
 ```json
 {
-  "index_patterns": [ "logs-*" ],
-  "mappings": {
-    "properties": {
-      "@timestamp": {
-        "type": "date_nanos"
-      },
-      "level" : {
-        "type" : "keyword"
-      },
-      "loggername" : {
-        "type" : "keyword"
+  "index_patterns": [ "log-*" ],
+  "mappings" : {
+    "properties" : {
+      "@timestamp" : {
+        "type" : "date_nanos"
       },
       "message" : {
         "type" : "text"
-      },
-      "thread" : {
-        "type" : "keyword"
-      },
-      "stacktrace" : {
-        "type" : "keyword"
-      },
-      "marker" : {
-        "type" : "keyword"
-      },
-      "ndc" : {
-        "type" : "keyword"
-      },
-      "k8s" : {
-        "properties": {
-          "restartCount" : {
-            "type" : "long"
-          },
-          "startTime" : {
-            "type" : "date"
-          }
-        }
       }
     },
     "dynamic_templates" : [
       {
-        "mdc": {
-          "path_match" : "mdc.*",
-          "mapping" : {
-            "type": "keyword"
-          }
-        }
-      },
-      {
-        "k8s-annotations" : {
-          "path_match" : "k8s.annotation.*",
-          "mapping" : {
-            "type" : "keyword"
-          }
-        }
-      },
-      {
-        "k8s-labels" : {
-          "path_match" : "k8s.label.*",
-          "mapping" : {
-            "type" : "keyword"
-          }
-        }
-      },
-      {
         "k8s" : {
-          "path_match" : "k8s.*",
-          "path_unmatch": "k8s.[restartCount|startTime|annotation|label]",
+          "match_mapping_type": "string",
           "mapping" : {
             "type" : "keyword"
           }
