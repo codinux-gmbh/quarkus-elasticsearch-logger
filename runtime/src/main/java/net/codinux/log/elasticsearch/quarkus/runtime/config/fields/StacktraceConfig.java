@@ -19,4 +19,10 @@ public class StacktraceConfig {
     @ConfigItem(name = "fieldname", defaultValue = LoggerSettings.StacktraceDefaultFieldName)
     public String fieldName;
 
+    /**
+     * The name of the stacktrace field.
+     */
+    @ConfigItem(name = "maxFieldLength", defaultValue = LoggerSettings.StacktraceMaxFieldLengthDefaultValueString)
+    public int maxFieldLength;
+
 }

@@ -57,6 +57,7 @@ public class QuarkusElasticsearchLogHandler extends JBossLoggingElasticsearchLog
 
                 config.stacktrace.include,
                 config.stacktrace.fieldName,
+                config.stacktrace.maxFieldLength,
 
                 config.mdc.include,
                 config.mdc.prefix,

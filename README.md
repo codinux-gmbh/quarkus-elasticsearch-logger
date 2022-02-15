@@ -83,6 +83,7 @@ quarkus.log.elasticsearch.hostname.fieldname=host
 
 quarkus.log.elasticsearch.stacktrace.include=true
 quarkus.log.elasticsearch.stacktrace.fieldname=stacktrace
+quarkus.log.elasticsearch.stacktrace.maxFieldLength=32766
 
 # if MDC (Mapped Diagnostic Context) should be included in Elasticsearch index.
 quarkus.log.elasticsearch.mdc.include=true
