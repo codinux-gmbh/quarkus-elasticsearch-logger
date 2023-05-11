@@ -34,6 +34,24 @@ public class ElasticsearchLoggingConfig {
     public String elasticsearchHost;
 
     /**
+     * If authentication is required: The username.
+     */
+    @ConfigItem(defaultValue = LoggerSettings.UsernameDefaultValueString)
+    public String username;
+
+    /**
+     * If authentication is required: The password.
+     */
+    @ConfigItem(defaultValue = LoggerSettings.PasswordDefaultValueString)
+    public String password;
+
+    /**
+     * If authentication is required: The password.
+     */
+    @ConfigItem(name = "disable-certificate-check", defaultValue = LoggerSettings.DisableCertificateCheckDefaultValueString)
+    public Boolean disableCertificateCheck;
+
+    /**
      * To which index to log to.
      */
     @ConfigItem(name = "index", defaultValue = LoggerSettings.IndexNameDefaultValue)

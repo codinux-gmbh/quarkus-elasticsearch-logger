@@ -32,6 +32,11 @@ public class QuarkusElasticsearchLogHandler extends JBossLoggingElasticsearchLog
 
                 config.elasticsearchHost,
 
+                getNullableString(config.username), // the default value is the string "null" -> convert it to null if necessary
+                getNullableString(config.password), // the default value is the string "null" -> convert it to null if necessary
+
+                config.disableCertificateCheck,
+
                 indexNamePattern,
                 patterns,
 
@@ -81,6 +86,15 @@ public class QuarkusElasticsearchLogHandler extends JBossLoggingElasticsearchLog
                 config.maxBufferedLogRecords,
                 config.sendLogRecordsPeriodMillis
         );
+    }
+
+
+    private static String getNullableString(String string) {
+        if (string.isBlank() || "null".equals(string)) {
+            return null;
+        }
+
+        return string;
     }
 
 }

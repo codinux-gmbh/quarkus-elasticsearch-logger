@@ -53,6 +53,13 @@ quarkus.log.elasticsearch.host=<only required configuration>
 
 quarkus.log.elasticsearch.enable=true
 
+# in case authentication is required
+quarkus.log.elasticsearch.username=null
+quarkus.log.elasticsearch.password=null
+
+# in case that Elasticsearch uses self signed certificates, set to true
+quarkus.log.elasticsearch.disable-certificate-check=false
+
 quarkus.log.elasticsearch.index=logs
 # supports also index-per-day with %date{<date_time_patter>}, where <date_time_pattern> can be any pattern that java.time.format.DateTimeFormatter supports
 #quarkus.log.elasticsearch.index=log-%date{yyyy.MM.dd}
