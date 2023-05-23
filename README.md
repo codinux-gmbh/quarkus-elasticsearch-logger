@@ -5,7 +5,8 @@ Provides sending logs from Quarkus to Elasticsearch.
 ## Features
 
 - Logs directly to Elasticsearch
-- Buffers messages and sends them asynchronously each 100 ms (configurable) in a bulk message to Elasticsearch to reduce round trips(?)
+- Uses the OpenSearchClient so that Elasticsearch 7, Elasticsearch 8 and OpenSearch are supported
+- Buffers messages and sends them asynchronously each 100 ms (configurable) in a bulk message to Elasticsearch to reduce round trip times and load on Elasticsearch
 - Supports timestamps with nanoseconds resolution (if supported by system), see [Nanosecond timestamp precision](#nanosecond-timestamp-precision)
 - Supports MDC and NDC
 - Supports retrieving and logging pod and Kubernetes info in Kubernetes environments
@@ -45,6 +46,18 @@ quarkus.log.elasticsearch.host=http://localhost:9200
 quarkus.log.elasticsearch.index=logs
 %dev.quarkus.log.elasticsearch.enable=false
 %test.quarkus.log.elasticsearch.enable=false
+```
+
+Set username and password:
+```
+quarkus.log.elasticsearch.host=https://localhost:9200
+quarkus.log.elasticsearch.username=user123
+quarkus.log.elasticsearch.password=password123
+```
+
+If Elasticsearch runs with self-signed certificates and you don't want to import them to your application, disable certificate check:
+```
+quarkus.log.elasticsearch.disable-certificate-check=true
 ```
 
 Full list of all settings with their default value:
